@@ -4,20 +4,12 @@ import Vue from 'vue'
 import App from './App'
 import router from './router'
 import firebase from 'firebase'
+import fireconf from './config'
 
 import 'semantic-ui-css/semantic.min.css'
 
 // Initialize Firebase
-var config = {
-  apiKey: 'AIzaSyDp58M5BUn1WpNBCSFO88IoBndBfhi_wC4',
-  authDomain: 'recordx-7e1c5.firebaseapp.com',
-  databaseURL: 'https://recordx-7e1c5.firebaseio.com',
-  projectId: 'recordx-7e1c5',
-  storageBucket: '',
-  messagingSenderId: '58722661207'
-}
-
-firebase.initializeApp(config)
+firebase.initializeApp(fireconf)
 
 Vue.config.productionTip = false
 

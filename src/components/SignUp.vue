@@ -4,6 +4,7 @@
   <form class="ui six wide column form">
   <div class="ui segment">
     <div v-if="error" class="ui red message">{{error}}</div>
+    <div v-if="message" class="ui green message">{{message}}</div>
     <h1 class="ui header">Sign Up</h1>
     <div class="field">
       <div class="ui left icon input" type="email" placeholder="E-mail address">
@@ -43,7 +44,8 @@ export default {
       email: '',
       password1: '',
       password2: '',
-      error: ''
+      error: '',
+      message: ''
     }
   },
   computed: {
@@ -60,10 +62,27 @@ export default {
       var vm = this
       firebase.auth().createUserWithEmailAndPassword(this.email, this.password).then(
         function (user) {
-          alert('Your account has been created')
+          vm.message = 'Your account has been created!'
+          // sent verification email
+
+          var u = firebase.auth().currentUser
+          if (!u) {
+            vm.error += 'Unable to send verification email'
+          }
+
+          u.sendEmailVerification().then(
+            function () {
+              alert('Verification email has been sent!')
+              vm.message += 'Verification email has been sent!'
+            }
+          ).catch(
+            function (error) {
+              alert('Oops! Unable to send Verification email')
+              vm.error += 'Oops! Unable to send Verification email!'
+            }
+          )
         },
         function (err) {
-          alert('oops. ' + err.message)
           vm.error = err.message
         }
       )

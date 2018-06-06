@@ -9,12 +9,12 @@ import 'semantic-ui-css/semantic.min.css'
 
 // Initialize Firebase
 var config = {
-  apiKey: 'AIzaSyAGPqgWOU7bKnx11ywFp6zXa3dTvF2dRDE',
-  authDomain: 'go-chat-1263.firebaseapp.com',
-  databaseURL: 'https://go-chat-1263.firebaseio.com',
-  projectId: 'go-chat-1263',
-  storageBucket: 'go-chat-1263.appspot.com',
-  messagingSenderId: '1031388120717'
+  apiKey: 'AIzaSyDp58M5BUn1WpNBCSFO88IoBndBfhi_wC4',
+  authDomain: 'recordx-7e1c5.firebaseapp.com',
+  databaseURL: 'https://recordx-7e1c5.firebaseio.com',
+  projectId: 'recordx-7e1c5',
+  storageBucket: '',
+  messagingSenderId: '58722661207'
 }
 
 firebase.initializeApp(config)

@@ -1,11 +1,10 @@
 <template>
-  <div class="ui centered grid container">
-
+  <div class="ui centered grid">
   <form class="ui six wide column form">
+  <h1 class="ui header"><i class="clipboard outline icon"> <span style="margin-left:1rem;">RecordX</span></i></h1>
   <div class="ui segment">
     <div v-if="error" class="ui red message">{{error}}</div>
     <div v-if="message" class="ui green message">{{message}}</div>
-    <h1 class="ui header">Sign Up</h1>
     <div class="field">
       <div class="ui left icon input" type="email" placeholder="E-mail address">
         <input type="email" v-model="email" autocomplete="email" placeholder="E-mail address">
@@ -27,7 +26,7 @@
     <button role="button" @click="signup($event)" class="ui teal fluid large button">Sign Up</button>
   </div>
   <p style="text-align:center">
-    or go to <router-link to="/login">Login</router-link>
+    or go to <router-link to="/sign-in">Sign In</router-link>
   </p>
   </form>
   </div>
@@ -78,7 +77,7 @@ export default {
           ).catch(
             function (error) {
               alert('Oops! Unable to send Verification email')
-              vm.error += 'Oops! Unable to send Verification email!'
+              vm.error += 'Oops! Unable to send Verification email! ' + error
             }
           )
         },
@@ -90,3 +89,9 @@ export default {
   }
 }
 </script>
+
+<style scoped>
+.grid {
+  margin-top: 3.75rem;
+}
+</style>

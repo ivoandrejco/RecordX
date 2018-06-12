@@ -7,13 +7,21 @@
       <router-link to="/patients">Patients</router-link>
     </div>
     <div class="right menu">
-      <router-link to="/login" class="ui item">Login</router-link>
+      <div class="item">
+          <div class="ui icon input">
+            <input type="text" placeholder="Search ..." />
+            <i class="search link icon"></i>
+          </div>
+      </div>
+      <div v-if="currentUser" v-html="currentUser" class="item"></div>
+      <a @click="signOut" class="ui item">Sign out</a>
     </div>
 </div>
 </template>
 
 <script>
 export default {
-  name: 'Navbar'
+  name: 'Navbar',
+  props: ['signOut', 'currentUser']
 }
 </script>

@@ -1,10 +1,10 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
 import store from '@/store'
-import Patients from '@/components/Patients'
-import Login from '@/components/Login'
+
 import Main from '@/components/Main'
+import Patients from '@/components/Patients'
+import SignIn from '@/components/SignIn'
 import SignUp from '@/components/SignUp'
 
 Vue.use(Router)
@@ -14,39 +14,45 @@ let router = new Router({
     {
       path: '/',
       name: 'Main',
-      component: Main
+      component: Main,
+      meta: {
+        requiresAuth: true
+      }
     },
     {
-      path: '/login',
-      name: 'Login',
-      component: Login
+      path: '/sign-in',
+      name: 'SignIn',
+      component: SignIn
     },
     {
-      path: '/signup',
+      path: '/sign-up',
       name: 'SignUp',
       component: SignUp
     },
     {
       path: '/patients',
       name: 'Patients',
-      component: Patients
+      component: Patients,
+      meta: {
+        requiresAuth: true
+      }
     }
   ]
 })
 
 router.beforeEach((to, from, next) => {
-  console.log('Store state isLoggedIn is ' + store.state.isLoggedIn)
-  console.log('to:' + to.path + ' - from: ' + from.path)
-  if (store.state.isLoggedIn !== true) {
-    if (to.name === 'Login' || to.name === 'SignUp') {
-      next()
-    } else {
-      next('/login?next=' + String.trim(to.path))
-    };
-  } else if (to.name === 'Login') {
+  let currentUser = store.state.currentUser
+  let requiresAuth = to.matched.some(record => record.meta.requiresAuth)
+
+  if (currentUser) console.log('User email: ' + currentUser.email)
+
+  if (requiresAuth && !currentUser) {
+    next({path: '/sign-in', params: {nextPath: from.path}})
+  } else if ((to.path === '/sign-in' || to.path === '/sign-up') && currentUser) {
     next('/')
+  } else {
+    next()
   }
-  next()
 })
 
 export default router

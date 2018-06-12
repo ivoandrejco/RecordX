@@ -1,8 +1,12 @@
 <template>
   <div>
-    <h2 class="ui header">Patients List</h2>
     <table class="ui table">
       <thead>
+        <tr>
+          <th colspan="6" class="aligned left">
+              Patients List
+          </th>
+        </tr>
         <tr>
           <th>
             Name

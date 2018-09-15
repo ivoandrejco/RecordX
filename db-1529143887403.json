@@ -1,0 +1,34 @@
+{
+  "patients": [
+    {
+      "id": 1,
+      "firstname": "Ivo",
+      "surname": "Andrejco",
+      "dob": "10/08/1974",
+      "diagnosis": "Lymphoma",
+      "lastSeen": "1/6/2018",
+      "todo": []
+    },
+    {
+      "id": 2,
+      "firstname": "Martina",
+      "surname": "Andrejco",
+      "dob": "22/10/1972",
+      "diagnosis": "Anemia",
+      "lastSeen": "1/6/2018",
+      "todo": [
+        "prescription",
+        "book CT"
+      ]
+    },
+    {
+      "id": 3,
+      "firstname": "Sophie",
+      "surname": "Andrejco",
+      "dob": "30/10/2008",
+      "diagnosis": "Thalasaemia",
+      "lastSeen": "1/6/2018",
+      "todo": []
+    }
+  ]
+}

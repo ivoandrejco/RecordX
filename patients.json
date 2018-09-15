@@ -1,0 +1,121 @@
+{
+  "patients": [
+    {
+      "id": "1",
+      "firstname": "Ivo",
+      "lastname": "Andrejco",
+      "dob": "1974-08-10",
+      "gender": "Male",
+      "diagnosis": "Diabetes Mellitus type 2",
+      "lastSeen": "2018-06-01",
+      "todo": [],
+      "middlename": ""
+    },
+    {
+      "id": "2",
+      "firstname": "Martina",
+      "lastname": "Andrejco",
+      "dob": "1972-10-22",
+      "gender": "Female",
+      "diagnosis": "Iron Deficiency Anemia",
+      "lastSeen": "2018-06-01",
+      "todo": [
+        "prescription",
+        "book CT"
+      ],
+      "middlename": ""
+    },
+    {
+      "id": "5",
+      "firstname": "Anika",
+      "middlename": "Leoni",
+      "lastname": "Andrejco",
+      "dob": "2014-05-17",
+      "gender": "Female",
+      "phones": [],
+      "diagnosis": "Iron deficiency",
+      "todo": [],
+      "initSeen": null,
+      "lastSeen": null
+    },
+    {
+      "id": "6911236xk9-wyw1jyek98",
+      "firstname": "Brett",
+      "middlename": "J",
+      "lastname": "Anderson",
+      "dob": "",
+      "gender": "Male",
+      "phones": "",
+      "diagnosis": "Polycythaemia rubra vera",
+      "todo": "",
+      "initSeen": "",
+      "lastSeen": ""
+    },
+    {
+      "id": "mg3uepjye5-hqhl57ka92",
+      "firstname": "Jasvir",
+      "middlename": "K",
+      "lastname": "Benning",
+      "dob": "",
+      "gender": "Female",
+      "phones": "",
+      "diagnosis": "Bruising",
+      "todo": "",
+      "initSeen": "",
+      "lastSeen": ""
+    },
+    {
+      "id": "a7yy0cmq8x-sxgucc4gcv",
+      "firstname": "Pamela",
+      "middlename": "E",
+      "lastname": "Tointon",
+      "dob": "",
+      "gender": "Female",
+      "phones": "",
+      "diagnosis": "Plasma cell leukemia",
+      "todo": "",
+      "initSeen": "",
+      "lastSeen": ""
+    },
+    {
+      "id": "1942a5f2-8233-41ad-aa98-a2b58e89c091",
+      "firstname": "Bozena",
+      "middlename": "",
+      "lastname": "Andrejco",
+      "dob": "1951-02-01",
+      "gender": "Female",
+      "phones": [],
+      "diagnosis": "Thrombocytopenia",
+      "todo": [],
+      "initSeen": null,
+      "lastSeen": null
+    },
+    {
+      "id": "ae24b832-f4f0-4977-b3b9-4f4d25021262",
+      "firstname": "Etienne",
+      "middlename": "Elliot",
+      "lastname": "Andrejco",
+      "dob": "2011-10-10",
+      "gender": "Male",
+      "phones": [],
+      "diagnosis": "Anemia",
+      "todo": [],
+      "initSeen": null,
+      "lastSeen": null
+    },
+    {
+      "id": "28e9f996-a0ca-42cd-8ff0-15ee53f22b80",
+      "firstname": "Sophie",
+      "middlename": "Isabel",
+      "lastname": "Andrejco",
+      "dob": "2008-10-30",
+      "gender": "Female",
+      "phones": [],
+      "diagnosis": "Anemia",
+      "todo": [],
+      "initSeen": null,
+      "lastSeen": null,
+      "sex": "Female"
+    }
+  ]
+}

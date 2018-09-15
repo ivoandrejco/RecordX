@@ -1,35 +1,28 @@
 <template>
-  <div class="ui centered grid">
-  <form class="ui six wide column form">
-  <h1 class="ui header"><i class="clipboard outline icon"> <span style="margin-left:1rem;">RecordX</span></i></h1>
-  <div class="ui segment">
-    <div v-if="error" class="ui red message">{{error}}</div>
-    <div v-if="message" class="ui green message">{{message}}</div>
-    <div class="field">
-      <div class="ui left icon input" type="email" placeholder="E-mail address">
-        <input type="email" v-model="email" autocomplete="email" placeholder="E-mail address">
-        <i class="user icon"></i>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui left icon input" type="password" placeholder="Password">
-        <input type="password" v-model="password1" autocomplete="new-password" placeholder="Password">
-        <i class="lock icon"></i>
-      </div>
-    </div>
-    <div class="field">
-      <div class="ui left icon input" type="password" placeholder="Repeat Password">
-        <input type="password" v-model="password2" autocomplete="new-password" placeholder="Repeat Password">
-        <i class="lock icon"></i>
-      </div>
-    </div>
-    <button role="button" @click="signup($event)" class="ui teal fluid large button">Sign Up</button>
-  </div>
-  <p style="text-align:center">
-    or go to <router-link to="/sign-in">Sign In</router-link>
-  </p>
-  </form>
-  </div>
+  <v-container fluid fill-height>
+    <v-layout align-center justify-center>
+      <v-flex xs12 sm8 md4>
+        <v-card class="elevation-3">
+          <v-toolbar dark color="primary">
+            <v-toolbar-title>RecordX - Login</v-toolbar-title>
+          </v-toolbar>
+          <v-card-text>
+            <p v-if="error" v-text="error"></p>
+            <v-form>
+              <v-text-field prepend-icon="person" v-model="email" autocomplete="email" name="email" label="Email" type="email"></v-text-field>
+              <v-text-field prepend-icon="lock" v-model="password1" autocomplete="new-password" name="password1" label="Password" type="password"></v-text-field>
+              <v-text-field prepend-icon="lock" v-model="password2" autocomplete="new-password" name="password2" label="Repeat Password" type="password"></v-text-field>
+            </v-form>
+          </v-card-text>
+          <v-card-actions>
+            <v-spacer></v-spacer>
+            <v-btn color="primary" round v-on:click="signIn">Login</v-btn>
+          </v-card-actions>
+          <v-subheader><router-link to="/sign-in">Sign In</router-link></v-subheader>
+        </v-card>
+      </v-flex>
+    </v-layout>
+</v-container>
 </template>
 
 <script>

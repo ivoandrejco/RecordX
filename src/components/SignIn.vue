@@ -1,32 +1,29 @@
 <template>
-<div id="signin-form" class="ui centered grid container">
-<form class="ui six wide column form">
-  <h1 class="ui header"><i class="clipboard outline icon"> <span style="margin-left:1rem;">RecordX</span></i></h1>
+<v-container fluid fill-height>
+  <v-layout align-center justify-center>
+    <v-flex xs12 sm8 md4>
+      <v-card class="elevation-3">
+        <v-toolbar dark color="primary">
+          <v-toolbar-title>RecordX - Login</v-toolbar-title>
+        </v-toolbar>
+        <v-card-text>
+          <p v-if="error" v-text="error">
 
-<div class="ui segment">
-  <div class="ui red message" v-if="error" v-html="error">
-  </div>
-  <div class="field">
-    <div class="ui left icon input" type="email" placeholder="E-mail address">
-      <input type="email" autocomplete="email" v-model="email" placeholder="E-mail address">
-      <i class="user icon"></i>
-    </div>
-  </div>
-  <div class="field">
-    <div class="ui left icon input" type="password" placeholder="Password">
-      <input type="password" autocomplete="password" v-model="password" placeholder="Password">
-      <i class="lock icon"></i>
-    </div>
-  </div>
-  <input type="hidden" v-model="nextPath" name="nextPath" />
-  <button role="button" @click="signIn($event)" class="ui teal fluid large button">Sign In</button>
-</div>
-<div style="text-align:center">
-  You don't have an account? You can <router-link to="/sign-up">create</router-link> one.
-</div>
-</form>
-
-</div>
+          </p>
+          <v-form>
+            <v-text-field prepend-icon="person" v-model="email" name="email" label="Email" type="email"></v-text-field>
+            <v-text-field prepend-icon="lock" v-model="password" name="password" label="Password" type="password"></v-text-field>
+          </v-form>
+        </v-card-text>
+        <v-card-actions>
+          <v-spacer></v-spacer>
+          <v-btn color="primary" round v-on:click="signIn">Login</v-btn>
+        </v-card-actions>
+          <v-subheader><router-link to="/sign-up">Sign Up</router-link></v-subheader>
+      </v-card>
+    </v-flex>
+  </v-layout>
+</v-container>
 </template>
 
 <script>
@@ -44,8 +41,7 @@ export default {
     }
   },
   methods: {
-    signIn: function (e) {
-      if (e) e.preventDefault()
+    signIn: function () {
       let vm = this
       firebase.auth().signInWithEmailAndPassword(this.email, this.password).then(
         function (user) {
@@ -69,7 +65,5 @@ export default {
 </script>
 
 <style scoped>
-.grid {
-  margin-top: 3.75rem;
-}
+
 </style>

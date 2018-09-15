@@ -24,6 +24,11 @@ module.exports = {
   entry: {
     app: './src/main.js'
   },
+  resolve: {
+    alias: {
+      'axios': path.resolve('/usr/local/lib/node_modules','axios')
+    }
+  },
   output: {
     path: config.build.assetsRoot,
     filename: '[name].js',

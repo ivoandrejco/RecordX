@@ -14,7 +14,7 @@
           </div>
       </div>
       <div v-if="currentUser" v-html="currentUser" class="item"></div>
-      <a @click="signOut" class="ui item">Sign out</a>
+      <a @click="signOut">Sign out</a>
     </div>
 </div>
 </template>
@@ -22,6 +22,19 @@
 <script>
 export default {
   name: 'Navbar',
-  props: ['signOut', 'currentUser']
+  props: {
+    'signOut': {
+      type: Function,
+      default: function () {
+        return function () { console.log('signing out') }
+      }
+    },
+    'currentUser': {
+      type: Object,
+      default: function () { return undefined }
+    }
+  },
+  methods: {
+  }
 }
 </script>

@@ -1,42 +1,58 @@
 <template>
 <div>
-<Navbar v-bind:signOut="signOut" v-bind:currentUser="currentUser"></Navbar>
-<div class="ui grid centered container">
-  <slot>
-  </slot>
-</div>
-<Footer></Footer>
+
+  <v-navigation-drawer v-if="navDrawer"  app>
+      <Navbar></Navbar>
+  </v-navigation-drawer>
+  <v-toolbar app color="primary" dark>
+    <v-toolbar-side-icon @click="navDrawer = !navDrawer"></v-toolbar-side-icon>
+    <v-toolbar-title>
+      <slot name="toolbar-title"></slot>
+    </v-toolbar-title>
+    <v-spacer></v-spacer>
+    <v-toolbar-items class="hidden-sm-and-down">
+      <slot name="right-menu">
+      </slot>
+    </v-toolbar-items>
+  </v-toolbar>
+          <slot name="main"></slot>
+  <Footer></Footer>
+
 </div>
 </template>
 
 <script>
 import firebase from 'firebase'
 
-import Navbar from './Navbar'
-import Footer from './Footer'
+import Navbar from '@/components/Navbar'
+import Footer from '@/components/Footer'
 
 export default {
   name: 'Main',
   components: { Navbar, Footer },
   data: function () {
     return {
+      navDrawer: false
     }
   },
   methods: {
     signOut () {
-      let vm = this
+      const self = this
 
       firebase.auth().signOut().then(
         function () {
           console.log('Signed out Success')
-          vm.$store.dispatch('setUser', null)
-          vm.$router.push('/sign-in')
+          self.$store.dispatch('setUser', null)
+          self.$router.push('/sign-in')
         }
       ).catch(
         function () {
           console.log('Sign out Failed')
         }
       )
+    },
+    showDrawer () {
+
     }
   },
   computed: {

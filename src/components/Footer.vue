@@ -1,13 +1,5 @@
 <template>
-<div class="ui three column centered grid">
-  <div class="row">
-    <div class="column">
-      Footer
-      Mutter
-    </div>
-
-  </div>
-</div>
+  <v-footer color="primary" light app></v-footer>
 </template>
 
 <script>
@@ -17,7 +9,4 @@ export default {
 </script>
 
 <style scoped>
-#footer {
-  font-weight: bold;
-}
 </style>

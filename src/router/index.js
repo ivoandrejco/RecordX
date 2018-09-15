@@ -1,9 +1,12 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-import store from '@/store'
 
 import Main from '@/components/Main'
-import Patients from '@/components/Patients'
+import Patients from '@/components/patients/Patients'
+import PatientsList from '@/components/patients/List'
+import PatientNew from '@/components/patients/New'
+import PatientView from '@/components/patients/View'
+import PatientEdit from '@/components/patients/Edit'
 import SignIn from '@/components/SignIn'
 import SignUp from '@/components/SignUp'
 
@@ -30,16 +33,50 @@ let router = new Router({
       component: SignUp
     },
     {
-      path: '/patients',
+      path: '/patients/',
       name: 'Patients',
       component: Patients,
       meta: {
         requiresAuth: true
-      }
+      },
+      children: [
+        {
+          path: '',
+          name: 'PatientsList',
+          component: PatientsList,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: 'new',
+          name: 'PatientNew',
+          component: PatientNew,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: ':id',
+          name: 'PatientView',
+          component: PatientView,
+          meta: {
+            requiresAuth: true
+          }
+        },
+        {
+          path: '/patients/:id/edit',
+          name: 'PatientEdit',
+          component: PatientEdit,
+          meta: {
+            requiresAuth: true
+          }
+        }
+      ]
     }
   ]
 })
-
+/*
 router.beforeEach((to, from, next) => {
   let currentUser = store.state.currentUser
   let requiresAuth = to.matched.some(record => record.meta.requiresAuth)
@@ -54,5 +91,5 @@ router.beforeEach((to, from, next) => {
     next()
   }
 })
-
+*/
 export default router
